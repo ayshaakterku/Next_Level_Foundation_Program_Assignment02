@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0c0d10;
+}
+
+/* Visible keyboard focus, kept consistent across interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #e7b559;
+  outline-offset: 2px;
+}
+
+/* Subtle film-grain texture on dark surfaces, purely decorative */
+.grain {
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(245, 243, 238, 0.035) 1px,
+    transparent 0
+  );
+  background-size: 3px 3px;
+}
+
+/* Poster image loading shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.poster-shimmer {
+  background: linear-gradient(90deg, #16181d 0%, #1e2127 50%, #16181d 100%);
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster-shimmer {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Custom thin scrollbar for the modal */
+.modal-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-scroll::-webkit-scrollbar-thumb {
+  background-color: #26292f;
+  border-radius: 999px;
+}
